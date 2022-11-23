@@ -1,7 +1,5 @@
 package solution
 
-import "log"
-
 // dot is byte representation of '.'
 const dot = 46
 
@@ -23,55 +21,22 @@ func isValidSudoku(board [][]byte) bool {
 				continue
 			}
 
-			if _, found := rows[rowIndex][char]; found {
+			if _, seenBefore := rows[rowIndex][char]; seenBefore {
 				return false
-			} else {
-				rows[rowIndex][char] = true
 			}
+			rows[rowIndex][char] = true
 
-			if _, found := cols[colIndex][char]; found {
+			if _, seenBefore := cols[colIndex][char]; seenBefore {
 				return false
-			} else {
-				cols[colIndex][char] = true
 			}
+			cols[colIndex][char] = true
 
-			sg := getSubgroup(rowIndex, colIndex)
-			if _, found := subgroups[sg][char]; found {
-				log.Println(rowIndex, colIndex)
-				log.Println(subgroups)
+			subgroupIndex := (rowIndex/3)*3 + colIndex/3
+			if _, seenBefore := subgroups[subgroupIndex][char]; seenBefore {
 				return false
-			} else {
-				subgroups[sg][char] = true
 			}
+			subgroups[subgroupIndex][char] = true
 		}
 	}
 	return true
-}
-
-func getSubgroup(x, y int) int {
-	if x <= 2 && y <= 2 {
-		return 0
-	}
-	if x <= 2 && y >= 3 && y <= 5 {
-		return 1
-	}
-	if x <= 2 && y >= 6 && y <= 8 {
-		return 2
-	}
-	if x >= 3 && x <= 5 && y <= 2 {
-		return 3
-	}
-	if x >= 3 && x <= 5 && y >= 3 && y <= 5 {
-		return 4
-	}
-	if x >= 3 && x <= 5 && y >= 6 && y <= 8 {
-		return 5
-	}
-	if x >= 6 && y <= 2 {
-		return 6
-	}
-	if x >= 6 && y >= 3 && y <= 5 {
-		return 7
-	}
-	return 8
 }
