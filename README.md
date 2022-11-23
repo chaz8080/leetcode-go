@@ -1,2 +1,3 @@
 # leetcode-go
-Repo to house leetcode solutions
+
+My Golang leetcode solutions
