@@ -1,3 +1,6 @@
 go 1.19
 
-use ./36-valid-sudoku
+use (
+	./36-valid-sudoku
+	./79-word-search
+)
