@@ -1,4 +1,4 @@
-package solution
+package wordSearch
 
 type Data struct {
 	Board [][]byte

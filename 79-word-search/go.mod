@@ -1,3 +1,3 @@
-module solution
+module wordSearch
 
 go 1.19

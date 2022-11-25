@@ -1,4 +1,4 @@
-package solution
+package validSudoku
 
 // dot is byte representation of '.'
 const dot = 46
