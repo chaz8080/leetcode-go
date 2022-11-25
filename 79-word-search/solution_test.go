@@ -14,42 +14,42 @@ func Test_exist(t *testing.T) {
 		args args
 		want bool
 	}{
-		// {
-		// 	name: "example 1",
-		// 	args: args{
-		// 		board: [][]byte{
-		// 			[]byte("ABCE"),
-		// 			[]byte("SFCS"),
-		// 			[]byte("ADEE"),
-		// 		},
-		// 		word: "ABCCED",
-		// 	},
-		// 	want: true,
-		// },
-		// {
-		// 	name: "example 2",
-		// 	args: args{
-		// 		board: [][]byte{
-		// 			[]byte("ABCE"),
-		// 			[]byte("SFCS"),
-		// 			[]byte("ADEE"),
-		// 		},
-		// 		word: "SEE",
-		// 	},
-		// 	want: true,
-		// },
-		// {
-		// 	name: "example 3",
-		// 	args: args{
-		// 		board: [][]byte{
-		// 			[]byte("ABCE"),
-		// 			[]byte("SFCS"),
-		// 			[]byte("ADEE"),
-		// 		},
-		// 		word: "ABCB",
-		// 	},
-		// 	want: false,
-		// },
+		{
+			name: "example 1",
+			args: args{
+				board: [][]byte{
+					[]byte("ABCE"),
+					[]byte("SFCS"),
+					[]byte("ADEE"),
+				},
+				word: "ABCCED",
+			},
+			want: true,
+		},
+		{
+			name: "example 2",
+			args: args{
+				board: [][]byte{
+					[]byte("ABCE"),
+					[]byte("SFCS"),
+					[]byte("ADEE"),
+				},
+				word: "SEE",
+			},
+			want: true,
+		},
+		{
+			name: "example 3",
+			args: args{
+				board: [][]byte{
+					[]byte("ABCE"),
+					[]byte("SFCS"),
+					[]byte("ADEE"),
+				},
+				word: "ABCB",
+			},
+			want: false,
+		},
 		{
 			name: "example 4",
 			args: args{

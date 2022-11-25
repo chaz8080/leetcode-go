@@ -1,17 +1,22 @@
 package solution
 
-import "fmt"
+type Data struct {
+	Board [][]byte
+	Rows  int
+	Cols  int
+}
 
 func exist(board [][]byte, word string) bool {
-	rows := len(board)
-	cols := len(board[0])
+	data := &Data{
+		Board: board,
+		Rows:  len(board),
+		Cols:  len(board[0]),
+	}
 
-	for row := 0; row < rows; row++ {
-		for col := 0; col < cols; col++ {
+	for row := 0; row < data.Rows; row++ {
+		for col := 0; col < data.Cols; col++ {
 			if board[row][col] == word[0] {
-				// pop first letter
-				werd := word[1:]
-				if checkWord(board, werd, nil, row, col) {
+				if checkWord(data, row, col, word) {
 					return true
 				}
 			}
@@ -21,26 +26,11 @@ func exist(board [][]byte, word string) bool {
 	return false
 }
 
-func getKey(row, col int) string {
-	return fmt.Sprintf("%d%d", row, col)
-}
-
-func checkWord(board [][]byte, word string, visited map[string]bool, row int, col int) bool {
-	if visited == nil {
-		// start traversing to see if solution
-		visited = map[string]bool{}
-		visited[getKey(row, col)] = true
-	}
-
-	fmt.Println(word)
+func checkWord(data *Data, row int, col int, word string) bool {
+	// base case: when we've found all of the letters in the word
 	if len(word) == 0 {
 		return true
 	}
-
-	char, word := word[0], word[1:]
-
-	rows := len(board)
-	cols := len(board[0])
 
 	dirs := [][]int{
 		{0, -1},
@@ -49,25 +39,24 @@ func checkWord(board [][]byte, word string, visited map[string]bool, row int, co
 		{1, 0},
 	}
 
+	if row < 0 || row == data.Rows || col < 0 || col == data.Cols || data.Board[row][col] != word[0] {
+		return false
+	}
+
+	ret := false
+	data.Board[row][col] = '#'
 	for _, dir := range dirs {
 		x, y := dir[0], dir[1]
 		posX := row + x
 		posY := col + y
+		ret = checkWord(data, posX, posY, word[1:])
 
-		if _, previouslyVisited := visited[getKey(posX, posY)]; previouslyVisited {
-			continue
-		}
-
-		// if in bounds
-		if (posX) >= 0 && (posX) < rows && (posY) >= 0 && (posY) < cols {
-			if board[posX][posY] == char {
-				visited[getKey(posX, posY)] = true
-				if checkWord(board, word, visited, posX, posY) {
-					return true
-				}
-			}
+		if ret {
+			break
 		}
 	}
 
-	return false
+	data.Board[row][col] = word[0]
+
+	return ret
 }
