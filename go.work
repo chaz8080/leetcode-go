@@ -3,4 +3,5 @@ go 1.19
 use (
 	./36-valid-sudoku
 	./79-word-search
+	./907-sum-of-subarray-minimums
 )
