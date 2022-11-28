@@ -1,6 +1,6 @@
 # leetcode-go
 
-My Golang leetcode solutions
+Golang leetcode solutions
 
 # heap
 
