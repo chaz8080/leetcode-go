@@ -17,7 +17,7 @@ func findWinners(matches [][]int) [][]int {
 	}
 
 	neverLost := []int{}
-	for w, _ := range winners {
+	for w := range winners {
 		if _, isAlsoLoser := losers[w]; !isAlsoLoser {
 			neverLost = append(neverLost, w)
 		}
