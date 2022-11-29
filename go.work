@@ -2,6 +2,7 @@ go 1.19
 
 use (
 	./1235-maximum-profit-in-job-scheduling
+	./1861-rotating-the-box
 	./2225-find-players-with-zero-or-one-losses
 	./36-valid-sudoku
 	./446-arithmetic-slices-ii-subsequence
