@@ -5,6 +5,7 @@ use (
 	./1861-rotating-the-box
 	./2225-find-players-with-zero-or-one-losses
 	./36-valid-sudoku
+	./380-insert-delete-get-random-O1
 	./446-arithmetic-slices-ii-subsequence
 	./79-word-search
 	./907-sum-of-subarray-minimums
