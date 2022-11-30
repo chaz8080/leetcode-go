@@ -3,6 +3,7 @@ go 1.19
 use (
 	./1207-unique-number-of-occurrences
 	./1235-maximum-profit-in-job-scheduling
+	./1752-check-if-array-is-sorted-and-rotated
 	./1861-rotating-the-box
 	./2225-find-players-with-zero-or-one-losses
 	./36-valid-sudoku
