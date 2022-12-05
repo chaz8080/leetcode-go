@@ -11,6 +11,7 @@ use (
 	./36-valid-sudoku
 	./380-insert-delete-get-random-O1
 	./446-arithmetic-slices-ii-subsequence
+	./451-sort-characters-by-frequency
 	./79-word-search
 	./907-sum-of-subarray-minimums
 	./heap
