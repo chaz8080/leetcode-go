@@ -46,7 +46,7 @@ func Test_middleNode(t *testing.T) {
 			},
 		},
 		{
-			name: "example 1",
+			name: "example 2",
 			args: args{
 				head: &ListNode{
 					Val: 1,

@@ -8,6 +8,7 @@ use (
 	./1752-check-if-array-is-sorted-and-rotated
 	./1861-rotating-the-box
 	./2225-find-players-with-zero-or-one-losses
+	./328-odd-even-linked-list
 	./36-valid-sudoku
 	./380-insert-delete-get-random-O1
 	./446-arithmetic-slices-ii-subsequence
