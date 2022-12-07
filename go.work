@@ -15,5 +15,6 @@ use (
 	./79-word-search
 	./876-middle-of-the-linked-list
 	./907-sum-of-subarray-minimums
+	./938-range-sum-of-bst
 	./heap
 )
