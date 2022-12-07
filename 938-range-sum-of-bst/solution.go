@@ -1,7 +1,5 @@
 package rangesumofbst
 
-import "log"
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -16,8 +14,6 @@ func sumTree(root *TreeNode, low int, high int) int {
 	if root == nil {
 		return 0
 	}
-
-	log.Println(root.Val)
 
 	var h, l, r int
 	if root.Val >= low && root.Val <= high {
