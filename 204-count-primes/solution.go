@@ -20,8 +20,10 @@ func countPrimes(n int) int {
 	potentialPrimes[0] = false // 0 is not prime
 	potentialPrimes[1] = false // 1 is not prime
 
+	// by the time you get to square_root(n), all of the primes have been identified
 	for i := 2; i <= int(math.Sqrt(float64(n))); i++ {
 		if prime := potentialPrimes[i]; prime {
+			// mark all multiples of i as false, because they're divisible by i
 			for j := i * i; j < n; j += i {
 				potentialPrimes[j] = false
 			}
