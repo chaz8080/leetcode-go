@@ -1,5 +1,7 @@
 package longestsubstringwithoutrepeatingcharacters
 
+// notes: sliding window with a hashmap
+
 func lengthOfLongestSubstring(s string) int {
 	// keep a map of the characters seen to the index they occur
 	charIndex := make(map[byte]int)
