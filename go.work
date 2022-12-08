@@ -8,6 +8,7 @@ use (
 	./1704-determine-if-string-halves-are-alike
 	./1752-check-if-array-is-sorted-and-rotated
 	./1861-rotating-the-box
+	./204-count-primes
 	./2225-find-players-with-zero-or-one-losses
 	./3-longest-substring-without-repeating-characters
 	./328-odd-even-linked-list
