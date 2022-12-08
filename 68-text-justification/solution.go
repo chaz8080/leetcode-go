@@ -1,80 +1,49 @@
 package textjustification
 
 import (
-	"fmt"
-	"log"
+	"bytes"
 	"strings"
 )
 
 func fullJustify(words []string, maxWidth int) []string {
-	// create map that contains the word that we want to store for each line
-	m := make(map[int]string)
-	line := 0
-	wordIndex := 0
-	for wordIndex < len(words) {
-		lLen := len(m[line])
-		nextWordLen := len(words[wordIndex])
-		if lLen+nextWordLen <= maxWidth {
-			m[line] = m[line] + fmt.Sprintf("%s0", words[wordIndex])
-			wordIndex++
-		} else {
-			m[line] = strings.TrimSuffix(m[line], "0")
-			line++
-		}
-	}
-	log.Println(m)
-	m[line] = strings.TrimSuffix(m[line], "0")
-	return justifyLines(m, maxWidth)
-}
-
-func justifyLines(m map[int]string, maxWidth int) []string {
-	ret := []string{}
-	line := 0
-	for line < len(m) {
-		words := strings.Split(m[line], "0")
-		totalSize := getTotalSize(words)
-		spacesRequired := maxWidth - totalSize
-		spacesInserted := 0
-		if len(words) == 1 {
-			for spacesInserted < spacesRequired {
-				words[0] += " "
-				spacesInserted++
-			}
-		} else if line == len(m)-1 { // last line
-			for spacesInserted < spacesRequired {
-				for i := range words {
-					if i == len(words)-1 {
-						continue
+	justify := []string{}
+	current, curLength := []string{}, 0
+	for i, w := range words {
+		if curLength+len(current)+len(w) > maxWidth {
+			if len(current) == 1 {
+				// only one word, all spaces are to the right of the word
+				curLine := current[0] + strings.Repeat(" ", maxWidth-len(current[0]))
+				justify = append(justify, curLine)
+			} else {
+				diff := maxWidth - curLength
+				spaces := diff / (len(current) - 1)
+				more := diff % (len(current) - 1)
+				curLine := bytes.Buffer{}
+				for ci, cw := range current {
+					curLine.WriteString(cw)
+					if ci != len(current)-1 {
+						moreBlanks := 0
+						if more > 0 {
+							moreBlanks = 1
+							more--
+						}
+						curLine.WriteString(strings.Repeat(" ", spaces+moreBlanks))
 					}
-					words[i] += " "
-					spacesInserted++
 				}
-				for spacesInserted < spacesRequired {
-					words[len(words)-1] += " "
-					spacesInserted++
-				}
+				justify = append(justify, curLine.String())
 			}
-		} else {
-			for spacesInserted < spacesRequired {
-				w := spacesInserted % (len(words) - 1)
-				words[w] += " "
-				spacesInserted++
-			}
+			current, curLength = []string{}, 0
 		}
 
-		ret = append(ret, strings.Join(words, ""))
-		line++
+		curLength += len(w)
+		current = append(current, w)
+
+		// last line, left justified and no extra space is inserted between words
+		if i == len(words)-1 {
+			lastLine := strings.Join(current, " ")
+			lastLine = lastLine + strings.Repeat(" ", maxWidth-len(lastLine))
+			justify = append(justify, lastLine)
+		}
 	}
-
-	return ret
-}
-
-// This    is    an
-
-func getTotalSize(words []string) int {
-	sum := 0
-	for _, word := range words {
-		sum += len(word)
-	}
-	return sum
+	return justify
 }
