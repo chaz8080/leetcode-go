@@ -15,6 +15,7 @@ use (
 	./380-insert-delete-get-random-O1
 	./446-arithmetic-slices-ii-subsequence
 	./79-word-search
+	./872-leaf-similar-trees
 	./876-middle-of-the-linked-list
 	./907-sum-of-subarray-minimums
 	./938-range-sum-of-bst
