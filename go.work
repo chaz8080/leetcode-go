@@ -2,6 +2,7 @@ go 1.19
 
 use (
 	./101-symmetric-tree
+	./1026-maximum-difference-between-node-and-ancestor
 	./1207-unique-number-of-occurrences
 	./1229-meeting-scheduler
 	./1235-maximum-profit-in-job-scheduling
