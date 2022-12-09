@@ -16,6 +16,7 @@ use (
 	./380-insert-delete-get-random-O1
 	./446-arithmetic-slices-ii-subsequence
 	./68-text-justification
+	./723-candy-crush
 	./79-word-search
 	./872-leaf-similar-trees
 	./876-middle-of-the-linked-list
