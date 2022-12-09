@@ -18,6 +18,7 @@ func minAvailableDuration(slots1 [][]int, slots2 [][]int, duration int) []int {
 		s1 := slots1[p1]
 		s2 := slots2[p2]
 
+		// if slot is less than duration, skip
 		if s1[1]-s1[0] < duration {
 			p1++
 			continue
@@ -26,24 +27,31 @@ func minAvailableDuration(slots1 [][]int, slots2 [][]int, duration int) []int {
 			p2++
 			continue
 		}
+
+		// if end time of slot 1 is less that the start time of slot 2, skip
 		if s1[1] < s2[0] {
 			p1++
 			continue
 		}
+
+		// if end time of slot 2 is less that the start time of slot 1, skip
 		if s2[1] < s1[0] {
 			p2++
 			continue
 		}
+
+		// check if duration is satisfied
 		if min(s1[1], s2[1])-max(s1[0], s2[0]) >= duration {
 			start := max(s1[0], s2[0])
 			end := start + duration
 			return []int{start, end}
+		}
+
+		// if not, move pointer that has the lesser endtime
+		if s1[1] < s2[1] {
+			p1++
 		} else {
-			if max(s1[1], s2[1]) == s1[1] {
-				p2++
-			} else {
-				p1++
-			}
+			p2++
 		}
 	}
 
