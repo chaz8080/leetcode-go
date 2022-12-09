@@ -14,10 +14,9 @@ func maxAncestorDiff(root *TreeNode) int {
 	return traverse(root, root.Val, root.Val, 0)
 }
 
-func traverse(root *TreeNode, max int, min int, m int) int {
-	d := diff(max, min)
+func traverse(root *TreeNode, max int, min int, currMax int) int {
 	if root == nil {
-		return d
+		return currMax
 	}
 
 	if root.Val < min {
@@ -28,11 +27,12 @@ func traverse(root *TreeNode, max int, min int, m int) int {
 		max = root.Val
 	}
 
-	d = diff(max, min)
+	d := diff(max, min)
+	currMax = maximum(d, currMax)
 
-	left := traverse(root.Left, max, min, maximum(d, m))
-	right := traverse(root.Right, max, min, maximum(d, m))
-	max = maximum(maximum(left, right), m)
+	left := traverse(root.Left, max, min, currMax)
+	right := traverse(root.Right, max, min, currMax)
+	max = maximum(maximum(left, right), currMax)
 
 	return max
 }
