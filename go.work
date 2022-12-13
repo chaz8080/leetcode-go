@@ -7,6 +7,7 @@ use (
 	./1207-unique-number-of-occurrences
 	./1229-meeting-scheduler
 	./1235-maximum-profit-in-job-scheduling
+	./15-three-sum
 	./1657-determine-if-string-halves-are-close
 	./167-two-sum-ii
 	./1704-determine-if-string-halves-are-alike
