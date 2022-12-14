@@ -26,6 +26,7 @@ use (
 	./872-leaf-similar-trees
 	./876-middle-of-the-linked-list
 	./907-sum-of-subarray-minimums
+	./931-minimum-falling-path
 	./938-range-sum-of-bst
 	./heap
 )
