@@ -1,6 +1,7 @@
 go 1.19
 
 use (
+	./000-fraud-variation
 	./000-two-sum-closest-k
 	./101-symmetric-tree
 	./1026-maximum-difference-between-node-and-ancestor
