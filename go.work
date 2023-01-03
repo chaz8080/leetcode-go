@@ -30,5 +30,6 @@ use (
 	./907-sum-of-subarray-minimums
 	./931-minimum-falling-path
 	./938-range-sum-of-bst
+	./944-delete-columns-to-make-sorted
 	./heap
 )
