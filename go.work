@@ -16,6 +16,7 @@ use (
 	./1861-rotating-the-box
 	./204-count-primes
 	./2225-find-players-with-zero-or-one-losses
+	./2244-minimum-rounds-to-complete-all-tasks
 	./2389-longest-subsequence-with-limited-sum
 	./3-longest-substring-without-repeating-characters
 	./328-odd-even-linked-list
