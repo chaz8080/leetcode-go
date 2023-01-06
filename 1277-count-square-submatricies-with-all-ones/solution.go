@@ -16,19 +16,21 @@ func countSquares(matrix [][]int) int {
 }
 
 func maxSize(row, col int, matrix [][]int, size int) int {
-	if row+size > len(matrix)-1 {
+	if row+size > len(matrix)-1 || col+size > len(matrix[0])-1 {
 		return size
 	}
 
-	if col+size > len(matrix[0])-1 {
-		return size
+	// check all row, last col
+	for r := row; r < row+size; r++ {
+		if matrix[r][col+size] != 1 {
+			return size
+		}
 	}
 
-	for r := row; r <= row+size; r++ {
-		for c := col; c <= col+size; c++ {
-			if matrix[r][c] != 1 {
-				return size
-			}
+	// check last row
+	for c := col; c <= col+size; c++ {
+		if matrix[row+size][c] != 1 {
+			return size
 		}
 	}
 
