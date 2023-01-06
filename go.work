@@ -23,6 +23,7 @@ use (
 	./36-valid-sudoku
 	./380-insert-delete-get-random-O1
 	./446-arithmetic-slices-ii-subsequence
+	./452-min-number-of-arrows-to-burst-balloons
 	./68-text-justification
 	./723-candy-crush
 	./79-word-search
