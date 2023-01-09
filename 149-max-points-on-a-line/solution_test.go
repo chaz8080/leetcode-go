@@ -11,31 +11,31 @@ func Test_maxPoints(t *testing.T) {
 		args args
 		want int
 	}{
-		// {
-		// 	name: "example 1",
-		// 	args: args{
-		// 		points: [][]int{
-		// 			{1, 1},
-		// 			{2, 2},
-		// 			{3, 3},
-		// 		},
-		// 	},
-		// 	want: 3,
-		// },
-		// {
-		// 	name: "example 2",
-		// 	args: args{
-		// 		points: [][]int{
-		// 			{1, 1},
-		// 			{3, 2},
-		// 			{5, 3},
-		// 			{4, 1},
-		// 			{2, 3},
-		// 			{1, 4},
-		// 		},
-		// 	},
-		// 	want: 4,
-		// },
+		{
+			name: "example 1",
+			args: args{
+				points: [][]int{
+					{1, 1},
+					{2, 2},
+					{3, 3},
+				},
+			},
+			want: 3,
+		},
+		{
+			name: "example 2",
+			args: args{
+				points: [][]int{
+					{1, 1},
+					{3, 2},
+					{5, 3},
+					{4, 1},
+					{2, 3},
+					{1, 4},
+				},
+			},
+			want: 4,
+		},
 		{
 			name: "example 3",
 			args: args{
