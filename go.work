@@ -9,6 +9,7 @@ use (
 	./1229-meeting-scheduler
 	./1235-maximum-profit-in-job-scheduling
 	./1277-count-square-submatricies-with-all-ones
+	./149-max-points-on-a-line
 	./15-three-sum
 	./1657-determine-if-string-halves-are-close
 	./167-two-sum-ii
