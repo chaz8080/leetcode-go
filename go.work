@@ -35,5 +35,6 @@ use (
 	./931-minimum-falling-path
 	./938-range-sum-of-bst
 	./944-delete-columns-to-make-sorted
+	./974-subarray-sums-divisible-by-k
 	./heap
 )
