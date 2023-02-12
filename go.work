@@ -24,6 +24,7 @@ use (
 	./328-odd-even-linked-list
 	./36-valid-sudoku
 	./380-insert-delete-get-random-O1
+	./438-find-all-anagrams-in-a-string
 	./446-arithmetic-slices-ii-subsequence
 	./452-min-number-of-arrows-to-burst-balloons
 	./68-text-justification
